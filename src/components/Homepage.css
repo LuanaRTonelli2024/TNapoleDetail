@@ -181,6 +181,24 @@
      padding: 10px 20px;
      cursor: pointer;
    }
+
+    /* Packages Section */
+    .packages-services {
+        padding: 50px;
+        text-align: center;
+        background-color: #fff;
+      }
+      
+      .packages-services h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #0f2036;
+      }
+    
+      .packages-services p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+      }
    
    /* About Us Section */
    .about-us-section {
@@ -200,6 +218,23 @@
      margin-bottom: 30px;
    }
  
+   /* Contact Us Section */
+   .contact-us-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .contact-us-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #0f2036;
+  }
+
+  .contact-us-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
  
  
    /* Footer */
