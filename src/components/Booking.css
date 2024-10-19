@@ -1,0 +1,13 @@
+.booking-container {
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.calendar {
+    margin-bottom: 20px;
+}
+
+.time-selection {
+    margin-bottom: 20px;
+}
