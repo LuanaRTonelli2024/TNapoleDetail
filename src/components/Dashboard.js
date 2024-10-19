@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Dashboard.css';
 import logo from '../images/logo.png';
 import { useNavigate } from 'react-router-dom';
+import Booking from './Booking';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -41,7 +42,10 @@ const Dashboard = () => {
             <div style={{ padding: '20px' }}>
                 <h1>Dashboard</h1>
                 <p>Bem-vindo ao seu painel de controle!</p>
+                <Booking />
             </div>
+
+
 
             <footer>
                 <p>© 2024 TNapoleDetailing. All rights reserved.</p>
