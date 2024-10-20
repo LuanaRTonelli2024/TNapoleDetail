@@ -1,11 +1,18 @@
 // src/components/AuthPage.js
 import React from 'react';
-import './AuthPage.css'; // Importar estilos personalizados
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './AuthPage.css';
 
 const AuthPage = () => {
     return (
         <div className="auth-container">
-            <div className="login-section">
+            <div className="calendar-section">
+                <Calendar
+                    minDate={new Date()}
+                />
+            </div>
+            <div className="auth-section">
                 <h2>Login</h2>
                 <form>
                     <div>
@@ -18,8 +25,7 @@ const AuthPage = () => {
                     </div>
                     <button type="submit">Entrar</button>
                 </form>
-            </div>
-            <div className="signup-section">
+
                 <h2>Signup</h2>
                 <form>
                     <div>

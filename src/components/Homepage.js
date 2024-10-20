@@ -6,6 +6,7 @@ import detailingImage from '../images/detailing.jpg';
 import paintcorrectionImage from '../images/paintcorrection.jpg';
 import ceramiccoatingImage from '../images/ceramiccoating.jpg';
 import { Link } from 'react-router-dom';
+import AuthPage from './AuthPage';
 
 const Homepage = () => {
   return (
@@ -34,7 +35,7 @@ const Homepage = () => {
         <div className="hero-content">
           <h1>Your Car, Our Passion</h1>
           <p>Premium auto detailing services to bring back the shine to your vehicle.</p>
-          <Link to="/Signup" className="cta-btn">Online Reservation</Link>
+          <Link to="/AuthPage" className="cta-btn">Online Reservation</Link>
         </div>
       </section>
 
