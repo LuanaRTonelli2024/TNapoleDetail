@@ -71,15 +71,28 @@ const Homepage = () => {
       <section id="packages" className="packages-services">
         <h2>Packages</h2>
         <p>Our packages are designed to meet your needs.  We offer three different packages:</p>
-        <div>
-          <table>
-            <tr>
-              <td>Car Detailing</td>
-              <td>Paint Correction</td>
-              <td>Ceramic Coating</td>
-            </tr>
-          </table>
+        <section className="packages-list">
+        <div className="package-card">
+          <h2>Basic Package</h2>
+          <p>A comprehensive exterior wash and interior cleaning.</p>
+          <p><strong>Price:</strong> $99</p>
+          <button className="btn-details">View Details</button>
         </div>
+
+        <div className="package-card">
+          <h2>Standard Package</h2>
+          <p>Includes all features of the Basic Package plus interior shampoo and waxing.</p>
+          <p><strong>Price:</strong> $199</p>
+          <button className="btn-details">View Details</button>
+        </div>
+
+        <div className="package-card">
+          <h2>Premium Package</h2>
+          <p>Full detailing service including paint correction and ceramic coating.</p>
+          <p><strong>Price:</strong> $499</p>
+          <button className="btn-details">View Details</button>
+        </div>
+      </section>
       </section>
 
       <section id="about-us" className="about-us-section">
@@ -92,6 +105,31 @@ const Homepage = () => {
       <section id="contact-us" className="contact-us-section">
         <h2>Contact TNapole Detailing</h2>
         <p>Any questions?  Send us a message now...</p>
+        <div className="contact-layout">
+        <div className="contact-info">
+          <h3>Contact Information</h3>
+          <p><strong>Phone:</strong> (123) 456-7890</p>
+          <p><strong>Email:</strong> info@tnapoledetailing.com</p>
+          <p><strong>Instagram:</strong> <a href="https://instagram.com/tnapoledetailing" target="_blank" rel="noopener noreferrer">@tnapoledetailing</a></p>
+        </div>
+
+        <form className="contact-form">
+        <h3>Get in Touch</h3>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+          <button type="submit" className="btn-submit">Send Message</button>
+        </form>
+        </div>
       </section>
 
 
