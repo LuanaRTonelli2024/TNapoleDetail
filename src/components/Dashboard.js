@@ -1,57 +1,59 @@
 // src/components/Dashboard.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Dashboard.css';
-import logo from '../images/logo.png';
-import { useNavigate } from 'react-router-dom';
-import Booking from './Booking';
+import React, { useEffect, useState } from 'react';
+import Calendar from 'react-calendar';
+import { db } from '../FireBase'; // Ajuste o caminho da importação
+import { collection, getDocs } from 'firebase/firestore';
+import 'react-calendar/dist/Calendar.css';
+import '../App.css'; // Ajuste o caminho da importação
 
 const Dashboard = () => {
-    const navigate = useNavigate();
+  const [userName] = useState('Usuário'); // Substitua pelo nome do usuário real
+  const [appointments, setAppointments] = useState([]);
+  const [value, setValue] = useState(new Date());
 
-    const handleLogout = () => {
-        // Limpa o token de autenticação do localStorage
-        localStorage.removeItem('token');
-        
-        // Redireciona para a página de login
-        navigate('/');
-    };
+  const handleDateChange = (date) => {
+    setValue(date);
+  };
 
-    return (
-        <div className="dashboard">
-            <header>
-                <div className="navbar">
-                    <div className="logo">
-                        <img src={logo} alt="Detailify Logo" />
-                    </div>
-                    <nav>
-                        <ul>
-                            <li><Link to="#">Test1</Link></li>  
-                            <li><Link to="#">Test2</Link></li>
-                            <li><Link to="#">Test3</Link></li>
-                            <li><Link to="#">Test4</Link></li>
-                            <li><Link to="#">Test5</Link></li>
-                        </ul>
-                    </nav>
-                    <div className="logout">
-                        <button onClick={handleLogout} className="btn-signout">Logout</button>
-                    </div>
-                </div>
-            </header>
+  // Função para buscar dados do Firestore
+  const fetchAppointments = async () => {
+    const appointmentsCollection = collection(db, 'appointments');
+    const appointmentSnapshot = await getDocs(appointmentsCollection);
+    const appointmentList = appointmentSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    setAppointments(appointmentList);
+  };
 
-            <div style={{ padding: '20px' }}>
-                <h1>Dashboard</h1>
-                <p>Bem-vindo ao seu painel de controle!</p>
-                <Booking />
-            </div>
+  useEffect(() => {
+    fetchAppointments();
+  }, []);
 
-
-
-            <footer>
-                <p>© 2024 TNapoleDetailing. All rights reserved.</p>
-            </footer>
+  return (
+    <div className="dashboard">
+      <aside className="sidebar">
+        <h2>Menu</h2>
+        <ul>
+          <li>Profile</li>
+          <li>My Vehicles</li>
+          <li>My Appointments</li>
+        </ul>
+      </aside>
+      <main className="main-content">
+        <h1>Seja bem-vindo, {userName}!</h1>
+        <div className="calendar-container">
+          <Calendar onChange={handleDateChange} value={value} />
         </div>
-    );
+        <div className="appointments">
+          <h2>Meus Agendamentos</h2>
+          <ul>
+            {appointments.map(appointment => (
+              <li key={appointment.id}>{appointment.title} - {appointment.date}</li>
+            ))}
+          </ul>
+        </div>
+      </main>
+    </div>
+  );
 };
 
 export default Dashboard;
+
