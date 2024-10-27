@@ -1,13 +1,13 @@
 // src/components/Dashboard.js
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-import { db } from '../FireBase'; // Ajuste o caminho da importação
+import { database } from '../FireBase';
 import { collection, getDocs } from 'firebase/firestore';
 import 'react-calendar/dist/Calendar.css';
-import '../App.css'; // Ajuste o caminho da importação
+import '../App.css';
 
 const Dashboard = () => {
-  const [userName] = useState('Usuário'); // Substitua pelo nome do usuário real
+  const [userName] = useState('Usuário');
   const [appointments, setAppointments] = useState([]);
   const [value, setValue] = useState(new Date());
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   // Função para buscar dados do Firestore
   const fetchAppointments = async () => {
-    const appointmentsCollection = collection(db, 'appointments');
+    const appointmentsCollection = collection(database, 'appointments');
     const appointmentSnapshot = await getDocs(appointmentsCollection);
     const appointmentList = appointmentSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setAppointments(appointmentList);

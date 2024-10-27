@@ -4,6 +4,8 @@ import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Booking from './components/Booking';
+import Signup from './components/Signup';
+import AuthPage from './components/AuthPage';
 
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/booking" element={<Booking />} />
+        <Route patch="/signup" element={<Signup   />} />  
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </Router>
   );

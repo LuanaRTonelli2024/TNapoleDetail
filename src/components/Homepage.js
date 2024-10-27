@@ -17,7 +17,7 @@ const Homepage = () => {
           </div>
           <nav>
             <ul>
-              <li><Link to="#">Home</Link></li>  
+              <li><Link to="/">Home</Link></li>  
               <li><a href="#services">Our Services</a></li>
               <li><a href="#packages">Packages</a></li>
               <li><a href="#about-us">About us</a></li>
@@ -34,7 +34,7 @@ const Homepage = () => {
         <div className="hero-content">
           <h1>Your Car, Our Passion</h1>
           <p>Premium auto detailing services to bring back the shine to your vehicle.</p>
-          <Link to="/Signup" className="cta-btn">Online Reservation</Link>
+          <Link to="/auth" className="cta-btn">Online Reservation</Link>
         </div>
       </section>
 
