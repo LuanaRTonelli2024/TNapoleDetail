@@ -1,15 +1,14 @@
-// src/components/Login.js
+// src/components/Signup.js
 import React, { useState } from "react";
 import { auth } from "../FireBase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Signup.css';
 
-const Login = () => {
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +17,6 @@ const Login = () => {
       setEmail("");
       setPassword("");
       setError("");
-      navigate("/Dashboard");
     } catch (err) {
       setError(err.message);
     }
@@ -47,4 +45,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
